@@ -2,7 +2,7 @@
   "name": "metoken",
   "version": "1.0.0",
   "description": "",
-  "main": "truffle-config.js",
+  "main": "2_deploy_contract.js",
   "directories": {
     "test": "test"
   },
