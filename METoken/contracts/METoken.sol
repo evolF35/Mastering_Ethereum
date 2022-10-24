@@ -1,7 +1,6 @@
-pragma solidity 0.8.17;
+pragma solidity ^0.4.24;
 
 import '../node_modules/openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol';
-
 
 
 contract METoken is StandardToken {
