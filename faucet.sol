@@ -1,14 +1,14 @@
 
 
-pragma solidity 0.6.4;
+pragma solidity 0.8.17;
 
 contract Faucet {
     receive() external payable {}
 
-    function withdraw(uint amount) {
+    function withdraw(uint amount) public {
         require(amount <= 100000000000000000);
 
-        msg.sender.transfer(withdraw_amount);
-    }
+    payable(msg.sender).transfer(amount);
 
+    }
 }
