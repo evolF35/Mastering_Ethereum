@@ -27,12 +27,22 @@ function destroy() public onlyOwner{
 
 contract Faucet is Mortal {
 
-    receive() external payable {}
+    event Withdrawal(address indexed to, uint amount);
+    event Deposit(address indexed from, uint amount);
+
+    receive() external payable {
+        emit Deposit(msg.sender, msg.value);
+    }
+
 
     function withdraw(uint amount) public {
+
         require(amount <= .1 ether);
         require(address(this).balance >= amount, "insufficient" );
-    payable(msg.sender).transfer(amount);
+        payable(msg.sender).transfer(amount);
+        emit Withdrawal(msg.sender, amount);
 
     }
 }
+
+
