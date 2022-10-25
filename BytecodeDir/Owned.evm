@@ -1,0 +1,56 @@
+    /* "faucet.sol":27:213  contract Owned{... */
+  mstore(0x40, 0x80)
+    /* "faucet.sol":67:116  constructor() {... */
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "faucet.sol":99:109  msg.sender */
+  caller
+    /* "faucet.sol":91:96  owner */
+  0x00
+  dup1
+    /* "faucet.sol":91:109  owner = msg.sender */
+  0x0100
+  exp
+  dup2
+  sload
+  dup2
+  0xffffffffffffffffffffffffffffffffffffffff
+  mul
+  not
+  and
+  swap1
+  dup4
+  0xffffffffffffffffffffffffffffffffffffffff
+  and
+  mul
+  or
+  swap1
+  sstore
+  pop
+    /* "faucet.sol":27:213  contract Owned{... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "faucet.sol":27:213  contract Owned{... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa264697066735822122001c193af0dddb548f00e799dcc32c7b96435e6af34e9092e141a379e0346c70164736f6c63430008110033
+}

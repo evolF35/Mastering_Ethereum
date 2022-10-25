@@ -1,0 +1,259 @@
+    /* "faucet.sol":216:327  contract Mortal is Owned {... */
+  mstore(0x40, 0x80)
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "faucet.sol":99:109  msg.sender */
+  caller
+    /* "faucet.sol":91:96  owner */
+  0x00
+  dup1
+    /* "faucet.sol":91:109  owner = msg.sender */
+  0x0100
+  exp
+  dup2
+  sload
+  dup2
+  0xffffffffffffffffffffffffffffffffffffffff
+  mul
+  not
+  and
+  swap1
+  dup4
+  0xffffffffffffffffffffffffffffffffffffffff
+  and
+  mul
+  or
+  swap1
+  sstore
+  pop
+    /* "faucet.sol":216:327  contract Mortal is Owned {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "faucet.sol":216:327  contract Mortal is Owned {... */
+      mstore(0x40, 0x80)
+      callvalue
+      dup1
+      iszero
+      tag_1
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_1:
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x83197ef0
+      eq
+      tag_3
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "faucet.sol":244:324  function destroy() public onlyOwner{... */
+    tag_3:
+      tag_4
+      tag_5
+      jump	// in
+    tag_4:
+      stop
+    tag_5:
+        /* "faucet.sol":174:179  owner */
+      0x00
+      dup1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":160:179  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":160:170  msg.sender */
+      caller
+        /* "faucet.sol":160:179  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+        /* "faucet.sol":152:193  require(msg.sender == owner,"only owner") */
+      tag_7
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      tag_8
+      swap1
+      tag_9
+      jump	// in
+    tag_8:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_7:
+        /* "faucet.sol":314:319  owner */
+      0x00
+      dup1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":293:321  selfdestruct(payable(owner)) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      selfdestruct
+        /* "#utility.yul":7:176   */
+    tag_11:
+        /* "#utility.yul":91:102   */
+      0x00
+        /* "#utility.yul":125:131   */
+      dup3
+        /* "#utility.yul":120:123   */
+      dup3
+        /* "#utility.yul":113:132   */
+      mstore
+        /* "#utility.yul":165:169   */
+      0x20
+        /* "#utility.yul":160:163   */
+      dup3
+        /* "#utility.yul":156:170   */
+      add
+        /* "#utility.yul":141:170   */
+      swap1
+      pop
+        /* "#utility.yul":7:176   */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":182:342   */
+    tag_12:
+        /* "#utility.yul":322:334   */
+      0x6f6e6c79206f776e657200000000000000000000000000000000000000000000
+        /* "#utility.yul":318:319   */
+      0x00
+        /* "#utility.yul":310:316   */
+      dup3
+        /* "#utility.yul":306:320   */
+      add
+        /* "#utility.yul":299:335   */
+      mstore
+        /* "#utility.yul":182:342   */
+      pop
+      jump	// out
+        /* "#utility.yul":348:714   */
+    tag_13:
+        /* "#utility.yul":490:493   */
+      0x00
+        /* "#utility.yul":511:578   */
+      tag_18
+        /* "#utility.yul":575:577   */
+      0x0a
+        /* "#utility.yul":570:573   */
+      dup4
+        /* "#utility.yul":511:578   */
+      tag_11
+      jump	// in
+    tag_18:
+        /* "#utility.yul":504:578   */
+      swap2
+      pop
+        /* "#utility.yul":587:680   */
+      tag_19
+        /* "#utility.yul":676:679   */
+      dup3
+        /* "#utility.yul":587:680   */
+      tag_12
+      jump	// in
+    tag_19:
+        /* "#utility.yul":705:707   */
+      0x20
+        /* "#utility.yul":700:703   */
+      dup3
+        /* "#utility.yul":696:708   */
+      add
+        /* "#utility.yul":689:708   */
+      swap1
+      pop
+        /* "#utility.yul":348:714   */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":720:1139   */
+    tag_9:
+        /* "#utility.yul":886:890   */
+      0x00
+        /* "#utility.yul":924:926   */
+      0x20
+        /* "#utility.yul":913:922   */
+      dup3
+        /* "#utility.yul":909:927   */
+      add
+        /* "#utility.yul":901:927   */
+      swap1
+      pop
+        /* "#utility.yul":973:982   */
+      dup2
+        /* "#utility.yul":967:971   */
+      dup2
+        /* "#utility.yul":963:983   */
+      sub
+        /* "#utility.yul":959:960   */
+      0x00
+        /* "#utility.yul":948:957   */
+      dup4
+        /* "#utility.yul":944:961   */
+      add
+        /* "#utility.yul":937:984   */
+      mstore
+        /* "#utility.yul":1001:1132   */
+      tag_21
+        /* "#utility.yul":1127:1131   */
+      dup2
+        /* "#utility.yul":1001:1132   */
+      tag_13
+      jump	// in
+    tag_21:
+        /* "#utility.yul":993:1132   */
+      swap1
+      pop
+        /* "#utility.yul":720:1139   */
+      swap2
+      swap1
+      pop
+      jump	// out
+
+    auxdata: 0xa2646970667358221220d386e8f62939c28eb11f4d5523f214e87be8b21071039c1f001200853896c2e264736f6c63430008110033
+}

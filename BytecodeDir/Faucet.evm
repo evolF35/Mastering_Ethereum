@@ -1,0 +1,709 @@
+    /* "faucet.sol":329:802  contract Faucet is Mortal {... */
+  mstore(0x40, 0x80)
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "faucet.sol":99:109  msg.sender */
+  caller
+    /* "faucet.sol":91:96  owner */
+  0x00
+  dup1
+    /* "faucet.sol":91:109  owner = msg.sender */
+  0x0100
+  exp
+  dup2
+  sload
+  dup2
+  0xffffffffffffffffffffffffffffffffffffffff
+  mul
+  not
+  and
+  swap1
+  dup4
+  0xffffffffffffffffffffffffffffffffffffffff
+  and
+  mul
+  or
+  swap1
+  sstore
+  pop
+    /* "faucet.sol":329:802  contract Faucet is Mortal {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "faucet.sol":329:802  contract Faucet is Mortal {... */
+      mstore(0x40, 0x80)
+      jumpi(tag_1, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x2e1a7d4d
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x83197ef0
+      eq
+      tag_4
+      jumpi
+      jump(tag_2)
+    tag_1:
+      jumpi(tag_2, calldatasize)
+        /* "faucet.sol":522:532  msg.sender */
+      caller
+        /* "faucet.sol":514:544  Deposit(msg.sender, msg.value) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c
+        /* "faucet.sol":534:543  msg.value */
+      callvalue
+        /* "faucet.sol":514:544  Deposit(msg.sender, msg.value) */
+      mload(0x40)
+      tag_7
+      swap2
+      swap1
+      tag_8
+      jump	// in
+    tag_7:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log2
+        /* "faucet.sol":329:802  contract Faucet is Mortal {... */
+      stop
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "faucet.sol":558:800  function withdraw(uint amount) public {... */
+    tag_3:
+      callvalue
+      dup1
+      iszero
+      tag_9
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_9:
+      pop
+      tag_10
+      0x04
+      dup1
+      calldatasize
+      sub
+      dup2
+      add
+      swap1
+      tag_11
+      swap2
+      swap1
+      tag_12
+      jump	// in
+    tag_11:
+      tag_13
+      jump	// in
+    tag_10:
+      stop
+        /* "faucet.sol":244:324  function destroy() public onlyOwner{... */
+    tag_4:
+      callvalue
+      dup1
+      iszero
+      tag_14
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_14:
+      pop
+      tag_15
+      tag_16
+      jump	// in
+    tag_15:
+      stop
+        /* "faucet.sol":558:800  function withdraw(uint amount) public {... */
+    tag_13:
+        /* "faucet.sol":625:633  .1 ether */
+      0x016345785d8a0000
+        /* "faucet.sol":615:621  amount */
+      dup2
+        /* "faucet.sol":615:633  amount <= .1 ether */
+      gt
+      iszero
+        /* "faucet.sol":607:634  require(amount <= .1 ether) */
+      tag_18
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_18:
+        /* "faucet.sol":677:683  amount */
+      dup1
+        /* "faucet.sol":652:673  address(this).balance */
+      selfbalance
+        /* "faucet.sol":652:683  address(this).balance >= amount */
+      lt
+      iszero
+        /* "faucet.sol":644:701  require(address(this).balance >= amount, "insufficient" ) */
+      tag_19
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      tag_20
+      swap1
+      tag_21
+      jump	// in
+    tag_20:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_19:
+        /* "faucet.sol":719:729  msg.sender */
+      caller
+        /* "faucet.sol":711:739  payable(msg.sender).transfer */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":711:747  payable(msg.sender).transfer(amount) */
+      0x08fc
+        /* "faucet.sol":740:746  amount */
+      dup3
+        /* "faucet.sol":711:747  payable(msg.sender).transfer(amount) */
+      swap1
+      dup2
+      iszero
+      mul
+      swap1
+      mload(0x40)
+      0x00
+      mload(0x40)
+      dup1
+      dup4
+      sub
+      dup2
+      dup6
+      dup9
+      dup9
+      call
+      swap4
+      pop
+      pop
+      pop
+      pop
+      iszero
+      dup1
+      iszero
+      tag_23
+      jumpi
+      returndatasize
+      0x00
+      dup1
+      returndatacopy
+      revert(0x00, returndatasize)
+    tag_23:
+      pop
+        /* "faucet.sol":773:783  msg.sender */
+      caller
+        /* "faucet.sol":762:792  Withdrawal(msg.sender, amount) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65
+        /* "faucet.sol":785:791  amount */
+      dup3
+        /* "faucet.sol":762:792  Withdrawal(msg.sender, amount) */
+      mload(0x40)
+      tag_24
+      swap2
+      swap1
+      tag_8
+      jump	// in
+    tag_24:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log2
+        /* "faucet.sol":558:800  function withdraw(uint amount) public {... */
+      pop
+      jump	// out
+        /* "faucet.sol":244:324  function destroy() public onlyOwner{... */
+    tag_16:
+        /* "faucet.sol":174:179  owner */
+      0x00
+      dup1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":160:179  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":160:170  msg.sender */
+      caller
+        /* "faucet.sol":160:179  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+        /* "faucet.sol":152:193  require(msg.sender == owner,"only owner") */
+      tag_26
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      tag_27
+      swap1
+      tag_28
+      jump	// in
+    tag_27:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_26:
+        /* "faucet.sol":314:319  owner */
+      0x00
+      dup1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "faucet.sol":293:321  selfdestruct(payable(owner)) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      selfdestruct
+        /* "#utility.yul":7:84   */
+    tag_30:
+        /* "#utility.yul":44:51   */
+      0x00
+        /* "#utility.yul":73:78   */
+      dup2
+        /* "#utility.yul":62:78   */
+      swap1
+      pop
+        /* "#utility.yul":7:84   */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":90:208   */
+    tag_31:
+        /* "#utility.yul":177:201   */
+      tag_45
+        /* "#utility.yul":195:200   */
+      dup2
+        /* "#utility.yul":177:201   */
+      tag_30
+      jump	// in
+    tag_45:
+        /* "#utility.yul":172:175   */
+      dup3
+        /* "#utility.yul":165:202   */
+      mstore
+        /* "#utility.yul":90:208   */
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":214:436   */
+    tag_8:
+        /* "#utility.yul":307:311   */
+      0x00
+        /* "#utility.yul":345:347   */
+      0x20
+        /* "#utility.yul":334:343   */
+      dup3
+        /* "#utility.yul":330:348   */
+      add
+        /* "#utility.yul":322:348   */
+      swap1
+      pop
+        /* "#utility.yul":358:429   */
+      tag_47
+        /* "#utility.yul":426:427   */
+      0x00
+        /* "#utility.yul":415:424   */
+      dup4
+        /* "#utility.yul":411:428   */
+      add
+        /* "#utility.yul":402:408   */
+      dup5
+        /* "#utility.yul":358:429   */
+      tag_31
+      jump	// in
+    tag_47:
+        /* "#utility.yul":214:436   */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":523:640   */
+    tag_33:
+        /* "#utility.yul":632:633   */
+      0x00
+        /* "#utility.yul":629:630   */
+      dup1
+        /* "#utility.yul":622:634   */
+      revert
+        /* "#utility.yul":769:891   */
+    tag_35:
+        /* "#utility.yul":842:866   */
+      tag_52
+        /* "#utility.yul":860:865   */
+      dup2
+        /* "#utility.yul":842:866   */
+      tag_30
+      jump	// in
+    tag_52:
+        /* "#utility.yul":835:840   */
+      dup2
+        /* "#utility.yul":832:867   */
+      eq
+        /* "#utility.yul":822:885   */
+      tag_53
+      jumpi
+        /* "#utility.yul":881:882   */
+      0x00
+        /* "#utility.yul":878:879   */
+      dup1
+        /* "#utility.yul":871:883   */
+      revert
+        /* "#utility.yul":822:885   */
+    tag_53:
+        /* "#utility.yul":769:891   */
+      pop
+      jump	// out
+        /* "#utility.yul":897:1036   */
+    tag_36:
+        /* "#utility.yul":943:948   */
+      0x00
+        /* "#utility.yul":981:987   */
+      dup2
+        /* "#utility.yul":968:988   */
+      calldataload
+        /* "#utility.yul":959:988   */
+      swap1
+      pop
+        /* "#utility.yul":997:1030   */
+      tag_55
+        /* "#utility.yul":1024:1029   */
+      dup2
+        /* "#utility.yul":997:1030   */
+      tag_35
+      jump	// in
+    tag_55:
+        /* "#utility.yul":897:1036   */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":1042:1371   */
+    tag_12:
+        /* "#utility.yul":1101:1107   */
+      0x00
+        /* "#utility.yul":1150:1152   */
+      0x20
+        /* "#utility.yul":1138:1147   */
+      dup3
+        /* "#utility.yul":1129:1136   */
+      dup5
+        /* "#utility.yul":1125:1148   */
+      sub
+        /* "#utility.yul":1121:1153   */
+      slt
+        /* "#utility.yul":1118:1237   */
+      iszero
+      tag_57
+      jumpi
+        /* "#utility.yul":1156:1235   */
+      tag_58
+      tag_33
+      jump	// in
+    tag_58:
+        /* "#utility.yul":1118:1237   */
+    tag_57:
+        /* "#utility.yul":1276:1277   */
+      0x00
+        /* "#utility.yul":1301:1354   */
+      tag_59
+        /* "#utility.yul":1346:1353   */
+      dup5
+        /* "#utility.yul":1337:1343   */
+      dup3
+        /* "#utility.yul":1326:1335   */
+      dup6
+        /* "#utility.yul":1322:1344   */
+      add
+        /* "#utility.yul":1301:1354   */
+      tag_36
+      jump	// in
+    tag_59:
+        /* "#utility.yul":1291:1354   */
+      swap2
+      pop
+        /* "#utility.yul":1247:1364   */
+      pop
+        /* "#utility.yul":1042:1371   */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":1377:1546   */
+    tag_37:
+        /* "#utility.yul":1461:1472   */
+      0x00
+        /* "#utility.yul":1495:1501   */
+      dup3
+        /* "#utility.yul":1490:1493   */
+      dup3
+        /* "#utility.yul":1483:1502   */
+      mstore
+        /* "#utility.yul":1535:1539   */
+      0x20
+        /* "#utility.yul":1530:1533   */
+      dup3
+        /* "#utility.yul":1526:1540   */
+      add
+        /* "#utility.yul":1511:1540   */
+      swap1
+      pop
+        /* "#utility.yul":1377:1546   */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "#utility.yul":1552:1714   */
+    tag_38:
+        /* "#utility.yul":1692:1706   */
+      0x696e73756666696369656e740000000000000000000000000000000000000000
+        /* "#utility.yul":1688:1689   */
+      0x00
+        /* "#utility.yul":1680:1686   */
+      dup3
+        /* "#utility.yul":1676:1690   */
+      add
+        /* "#utility.yul":1669:1707   */
+      mstore
+        /* "#utility.yul":1552:1714   */
+      pop
+      jump	// out
+        /* "#utility.yul":1720:2086   */
+    tag_39:
+        /* "#utility.yul":1862:1865   */
+      0x00
+        /* "#utility.yul":1883:1950   */
+      tag_63
+        /* "#utility.yul":1947:1949   */
+      0x0c
+        /* "#utility.yul":1942:1945   */
+      dup4
+        /* "#utility.yul":1883:1950   */
+      tag_37
+      jump	// in
+    tag_63:
+        /* "#utility.yul":1876:1950   */
+      swap2
+      pop
+        /* "#utility.yul":1959:2052   */
+      tag_64
+        /* "#utility.yul":2048:2051   */
+      dup3
+        /* "#utility.yul":1959:2052   */
+      tag_38
+      jump	// in
+    tag_64:
+        /* "#utility.yul":2077:2079   */
+      0x20
+        /* "#utility.yul":2072:2075   */
+      dup3
+        /* "#utility.yul":2068:2080   */
+      add
+        /* "#utility.yul":2061:2080   */
+      swap1
+      pop
+        /* "#utility.yul":1720:2086   */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":2092:2511   */
+    tag_21:
+        /* "#utility.yul":2258:2262   */
+      0x00
+        /* "#utility.yul":2296:2298   */
+      0x20
+        /* "#utility.yul":2285:2294   */
+      dup3
+        /* "#utility.yul":2281:2299   */
+      add
+        /* "#utility.yul":2273:2299   */
+      swap1
+      pop
+        /* "#utility.yul":2345:2354   */
+      dup2
+        /* "#utility.yul":2339:2343   */
+      dup2
+        /* "#utility.yul":2335:2355   */
+      sub
+        /* "#utility.yul":2331:2332   */
+      0x00
+        /* "#utility.yul":2320:2329   */
+      dup4
+        /* "#utility.yul":2316:2333   */
+      add
+        /* "#utility.yul":2309:2356   */
+      mstore
+        /* "#utility.yul":2373:2504   */
+      tag_66
+        /* "#utility.yul":2499:2503   */
+      dup2
+        /* "#utility.yul":2373:2504   */
+      tag_39
+      jump	// in
+    tag_66:
+        /* "#utility.yul":2365:2504   */
+      swap1
+      pop
+        /* "#utility.yul":2092:2511   */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":2517:2677   */
+    tag_40:
+        /* "#utility.yul":2657:2669   */
+      0x6f6e6c79206f776e657200000000000000000000000000000000000000000000
+        /* "#utility.yul":2653:2654   */
+      0x00
+        /* "#utility.yul":2645:2651   */
+      dup3
+        /* "#utility.yul":2641:2655   */
+      add
+        /* "#utility.yul":2634:2670   */
+      mstore
+        /* "#utility.yul":2517:2677   */
+      pop
+      jump	// out
+        /* "#utility.yul":2683:3049   */
+    tag_41:
+        /* "#utility.yul":2825:2828   */
+      0x00
+        /* "#utility.yul":2846:2913   */
+      tag_69
+        /* "#utility.yul":2910:2912   */
+      0x0a
+        /* "#utility.yul":2905:2908   */
+      dup4
+        /* "#utility.yul":2846:2913   */
+      tag_37
+      jump	// in
+    tag_69:
+        /* "#utility.yul":2839:2913   */
+      swap2
+      pop
+        /* "#utility.yul":2922:3015   */
+      tag_70
+        /* "#utility.yul":3011:3014   */
+      dup3
+        /* "#utility.yul":2922:3015   */
+      tag_40
+      jump	// in
+    tag_70:
+        /* "#utility.yul":3040:3042   */
+      0x20
+        /* "#utility.yul":3035:3038   */
+      dup3
+        /* "#utility.yul":3031:3043   */
+      add
+        /* "#utility.yul":3024:3043   */
+      swap1
+      pop
+        /* "#utility.yul":2683:3049   */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":3055:3474   */
+    tag_28:
+        /* "#utility.yul":3221:3225   */
+      0x00
+        /* "#utility.yul":3259:3261   */
+      0x20
+        /* "#utility.yul":3248:3257   */
+      dup3
+        /* "#utility.yul":3244:3262   */
+      add
+        /* "#utility.yul":3236:3262   */
+      swap1
+      pop
+        /* "#utility.yul":3308:3317   */
+      dup2
+        /* "#utility.yul":3302:3306   */
+      dup2
+        /* "#utility.yul":3298:3318   */
+      sub
+        /* "#utility.yul":3294:3295   */
+      0x00
+        /* "#utility.yul":3283:3292   */
+      dup4
+        /* "#utility.yul":3279:3296   */
+      add
+        /* "#utility.yul":3272:3319   */
+      mstore
+        /* "#utility.yul":3336:3467   */
+      tag_72
+        /* "#utility.yul":3462:3466   */
+      dup2
+        /* "#utility.yul":3336:3467   */
+      tag_41
+      jump	// in
+    tag_72:
+        /* "#utility.yul":3328:3467   */
+      swap1
+      pop
+        /* "#utility.yul":3055:3474   */
+      swap2
+      swap1
+      pop
+      jump	// out
+
+    auxdata: 0xa2646970667358221220be20a3f1510aa6ec6f6c339d155e35d94c45e8688d31703bc782d7098a67db6d64736f6c63430008110033
+}
